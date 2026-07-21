@@ -1,0 +1,12 @@
+CUSTOMISE YOUR PROPOSAL
+
+1. Open assets/js/config.js in Notepad or any text editor.
+2. Change "Your Name" and "My Love".
+3. Change the specialDate using this format:
+   2027-02-14T19:00:00
+4. Replace the sample messages with your real memories.
+5. Put your photos inside assets/images.
+6. Replace the sample image filenames in config.js.
+7. Save the file and open index.html.
+
+The heart logo contains a hidden surprise. Click it five times.

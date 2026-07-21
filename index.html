@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#190d18" />
+  <meta name="description" content="A cinematic, luxury proposal experience." />
+  <title>Our Forever</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <noscript>
+    <div class="noscript">Please enable JavaScript to experience this love story.</div>
+  </noscript>
+
+  <div id="app" class="app" aria-live="polite">
+    <div class="ambient-layer" aria-hidden="true">
+      <canvas id="starCanvas"></canvas>
+      <canvas id="particleCanvas"></canvas>
+      <div class="aurora aurora-one"></div>
+      <div class="aurora aurora-two"></div>
+      <div id="floatingHearts" class="floating-hearts"></div>
+      <div id="fireflies" class="fireflies"></div>
+    </div>
+
+    <header class="topbar">
+      <button id="heartLogo" class="heart-logo" aria-label="Our Forever home">
+        <span aria-hidden="true">♥</span>
+      </button>
+      <div class="topbar-title">Our Forever</div>
+      <button id="audioToggle" class="icon-button glass" aria-label="Mute background music" aria-pressed="false">
+        <span class="audio-icon" aria-hidden="true">♪</span>
+      </button>
+    </header>
+
+    <main id="storyViewport" class="story-viewport">
+      <section class="scene is-active" id="scene-1" data-scene="1" aria-labelledby="landing-title">
+        <div class="scene-inner hero-layout">
+          <div class="eyebrow reveal">A story written in starlight</div>
+          <h1 id="landing-title" class="display-title reveal">Every beautiful story starts with one question...</h1>
+          <p class="hero-subtitle reveal">Ours began quietly, then became my favourite part of every day.</p>
+          <button class="primary-button magnetic reveal" data-next="2">Begin Our Journey <span aria-hidden="true">♥</span></button>
+          <div class="scroll-hint" aria-hidden="true"><span></span>Follow the story</div>
+        </div>
+      </section>
+
+      <section class="scene" id="scene-2" data-scene="2" aria-labelledby="story-title">
+        <div class="scene-inner content-layout">
+          <div class="section-heading">
+            <div class="eyebrow">Chapter One</div>
+            <h2 id="story-title">Our Story</h2>
+            <p>Five little moments that quietly changed everything.</p>
+          </div>
+          <div id="timeline" class="timeline"></div>
+          <button class="primary-button" data-next="3">Continue to Our Memories</button>
+        </div>
+      </section>
+
+      <section class="scene" id="scene-3" data-scene="3" aria-labelledby="gallery-title">
+        <div class="scene-inner content-layout wide">
+          <div class="section-heading">
+            <div class="eyebrow">Captured forever</div>
+            <h2 id="gallery-title">Photo Gallery</h2>
+            <p>Moments I would relive a thousand times.</p>
+          </div>
+          <div id="gallery" class="gallery-grid"></div>
+          <button class="primary-button" data-next="4">Ten Reasons I Love You</button>
+        </div>
+      </section>
+
+      <section class="scene" id="scene-4" data-scene="4" aria-labelledby="reasons-title">
+        <div class="scene-inner content-layout wide">
+          <div class="section-heading">
+            <div class="eyebrow">Just a few of many</div>
+            <h2 id="reasons-title">Reasons Why I Love You <span aria-hidden="true">♥</span></h2>
+            <p>Tap or hover each card to reveal a little truth.</p>
+          </div>
+          <div id="reasonsGrid" class="reasons-grid"></div>
+          <button class="primary-button" data-next="5">Open Our Memory Book</button>
+        </div>
+      </section>
+
+      <section class="scene" id="scene-5" data-scene="5" aria-labelledby="book-title">
+        <div class="scene-inner content-layout">
+          <div class="section-heading">
+            <div class="eyebrow">Pages from us</div>
+            <h2 id="book-title">Memory Book</h2>
+            <p>Every page holds a piece of my heart.</p>
+          </div>
+          <div class="book-shell">
+            <div id="book" class="memory-book" aria-live="polite"></div>
+            <div class="book-controls">
+              <button id="bookPrev" class="secondary-button" type="button">Previous</button>
+              <div id="bookCounter" class="book-counter">1 / 1</div>
+              <button id="bookNext" class="secondary-button" type="button">Next</button>
+            </div>
+          </div>
+          <button class="primary-button" data-next="6">See Our Future</button>
+        </div>
+      </section>
+
+      <section class="scene" id="scene-6" data-scene="6" aria-labelledby="countdown-title">
+        <div class="scene-inner center-layout">
+          <div class="eyebrow">The beginning of forever</div>
+          <h2 id="countdown-title" class="display-title small">Our Future Starts Here</h2>
+          <div id="countdown" class="countdown" aria-label="Countdown to our special date"></div>
+          <p id="countdownCaption" class="countdown-caption"></p>
+          <button class="primary-button" data-next="7">Read My Letter</button>
+        </div>
+      </section>
+
+      <section class="scene" id="scene-7" data-scene="7" aria-labelledby="letter-title">
+        <div class="scene-inner content-layout">
+          <div class="section-heading">
+            <div class="eyebrow">From my heart</div>
+            <h2 id="letter-title">A Letter for You</h2>
+          </div>
+          <article class="letter-paper">
+            <div class="wax-seal" aria-hidden="true">♥</div>
+            <p id="letterText" class="handwritten"></p>
+            <div id="letterSignature" class="letter-signature"></div>
+          </article>
+          <button id="letterContinue" class="primary-button is-hidden" data-next="8">One Last Thing</button>
+        </div>
+      </section>
+
+      <section class="scene sunset-scene" id="scene-8" data-scene="8" aria-labelledby="prepare-title">
+        <div class="scene-inner center-layout">
+          <div class="eyebrow">Just one more moment</div>
+          <h2 id="prepare-title" class="display-title small">I have one last question...</h2>
+          <p class="hero-subtitle">Take my hand. Take a breath. Let the whole world become quiet.</p>
+          <button class="primary-button pulse-button" data-next="9">Continue</button>
+        </div>
+      </section>
+
+      <section class="scene proposal-scene" id="scene-9" data-scene="9" aria-labelledby="proposal-title">
+        <div class="scene-inner proposal-layout">
+          <div class="proposal-ring-mini" aria-hidden="true"><span></span></div>
+          <div class="eyebrow">Today, tomorrow, always</div>
+          <h2 id="proposal-title" class="proposal-title">Will You Marry Me?</h2>
+          <p class="proposal-subtitle">There is no future I want that does not have you in it.</p>
+          <div id="proposalActions" class="proposal-actions">
+            <button id="yesButton" class="yes-button">YES <span aria-hidden="true">♥</span></button>
+            <button id="noButton" class="no-button" tabindex="-1" aria-label="No, but this button playfully moves away">NO <span aria-hidden="true">😅</span></button>
+          </div>
+          <div id="noMessage" class="no-message" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="scene celebration-scene" id="scene-10" data-scene="10" aria-labelledby="celebration-title">
+        <canvas id="celebrationCanvas" aria-hidden="true"></canvas>
+        <div id="petalLayer" class="petal-layer" aria-hidden="true"></div>
+        <div class="scene-inner celebration-layout">
+          <div class="gold-rays" aria-hidden="true"></div>
+          <div class="ring-stage" aria-hidden="true">
+            <div class="ring-box"><div class="ring"><span class="diamond"></span></div></div>
+          </div>
+          <h2 id="celebration-title" class="celebration-title">She Said YES <span aria-hidden="true">♥</span></h2>
+          <p class="celebration-subtitle">The Best Day Of My Life</p>
+          <div class="forever-line">I Love You Forever</div>
+          <div class="heartbeat-heart" aria-hidden="true">♥</div>
+          <div class="couple-silhouette" aria-label="Silhouette of a couple holding hands">
+            <span class="person person-one"></span>
+            <span class="person person-two"></span>
+            <span class="joined-hands"></span>
+          </div>
+          <button id="restartButton" class="primary-button">Start Our Forever</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="progressDots" class="progress-dots" aria-label="Story progress"></div>
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo preview" hidden>
+      <button id="lightboxClose" class="lightbox-close" aria-label="Close photo preview">×</button>
+      <img id="lightboxImage" src="" alt="" />
+      <p id="lightboxCaption"></p>
+    </div>
+
+    <div id="easterEgg" class="easter-egg" role="status" aria-live="polite">
+      <span>I'll choose you in every lifetime <b aria-hidden="true">♥</b></span>
+    </div>
+
+    <div id="transitionVeil" class="transition-veil" aria-hidden="true"></div>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
