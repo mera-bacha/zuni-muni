@@ -107,6 +107,6 @@ Meri pyari wifey ❤️ I Love You Shooooooooo Much Meli Jaan. Jld hi InShaAllah
 
   audio: {
     enabledByDefault: true,
-    volume: 10
+    volume: 5
   }
 };
